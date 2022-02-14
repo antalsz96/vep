@@ -19,3 +19,5 @@ while timer.getTime() > 0:
     g2.draw()
     win.flip()
     ISI.complete()
+
+    
