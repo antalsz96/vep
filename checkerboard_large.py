@@ -10,8 +10,8 @@ cross_hor = visual.Line(win=win, start=[11.4,9.5], end=[11.6,9.5], lineWidth=2, 
 cross_ver = visual.Line(win=win, start=[11.5,9.4], end=[11.5,9.6], lineWidth=2, lineColor="red", units="deg")
 
 
-g1 = visual.GratingStim(win=win, tex="sqrXsqr", units="deg", pos=(0,0), size=(48,38), sf=1.5)
-g2 = visual.GratingStim(win=win, tex="sqrXsqr", units="deg", pos=(0,0), size=(48,38), sf=1.5, contrast=-1)
+g1 = visual.GratingStim(win=win, tex="sqrXsqr", units="deg", pos=(0,0), size=(48,38), sf=0.5)
+g2 = visual.GratingStim(win=win, tex="sqrXsqr", units="deg", pos=(0,0), size=(48,38), sf=0.5, contrast=-1)
 
 timer = core.CountdownTimer(5)
 while timer.getTime() > 0:
