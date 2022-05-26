@@ -1,0 +1,11 @@
+*.html
+*.csv
+*.ipynb
+*.md
+*.eeg
+*.ehst2
+*.hfinf2
+*.png
+*.vhdr
+*.vmrk
+.DS_Store
