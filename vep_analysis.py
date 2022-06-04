@@ -1,15 +1,24 @@
-import mne, glob
+import mne, glob, os, sys
 import pandas as pd
 import neurokit2 as nk
 import matplotlib.pyplot as plt
 import numpy as np
 
+if sys.argv:
+    path=os.path.abspath(sys.argv[1])
+    # print('cmd:', sys.argv)
+else:
+    path=os.getcwd()
+
+# print(path)
 markdowns=[]
 images=[]
-for file in glob.glob("*.vhdr"):
+for file in glob.glob(f"{path}/*.vhdr"):
     # Raw data
     raw = mne.io.read_raw_brainvision(file)
-    filename=file.split(sep='.')[0]
+    rel_file=os.path.relpath(file)
+    filename=rel_file.split(sep='.')[0]
+    # print(rel_file, filename)
     patient=filename.split('_')[:-2]
     patient=f"{patient[0]}_{patient[1]}_{patient[2]}"
     date=raw.info['meas_date']
@@ -45,9 +54,8 @@ for file in glob.glob("*.vhdr"):
     markdowns.append(md)
     # print(md)
     plot=epochs.plot(titles=filename, show=False).savefig(filename)
-    images.append(filename)
+    images.append(filename.split('/')[-1])
     # plots.append(plot)
-
 
 # Create html from the plots and peaks
 # images=[]
