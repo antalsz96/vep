@@ -54,7 +54,7 @@ for file in glob.glob(f"{path}/*.vhdr"):
     markdowns.append(md)
     # print(md)
     plot=epochs.plot(titles=filename, show=False).savefig(filename)
-    images.append(filename.split('/')[-1])
+    images.append(filename.split(r'[/\\]')[-1])
     # plots.append(plot)
 
 # Create html from the plots and peaks
