@@ -1,4 +1,4 @@
-import mne, glob, os, sys
+import mne, glob, os, sys, re
 import pandas as pd
 import neurokit2 as nk
 import matplotlib.pyplot as plt
@@ -54,7 +54,9 @@ for file in glob.glob(f"{path}/*.vhdr"):
     markdowns.append(md)
     # print(md)
     plot=epochs.plot(titles=filename, show=False).savefig(filename)
-    images.append(filename.split(r'[\\/]')[-1])
+    img_name=re.split(r'[\\/]',filename)[-1]
+    images.append(img_name)
+    # images.append(filename.split(r'[\\/]')[-1])
     # plots.append(plot)
 
 # Create html from the plots and peaks
